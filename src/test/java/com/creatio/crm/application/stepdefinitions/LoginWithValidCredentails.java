@@ -2,6 +2,7 @@ package com.creatio.crm.application.stepdefinitions;
 
 import org.openqa.selenium.WebDriver;
 
+import com.creatio.crm.application.base.BaseTest;
 import com.creatio.crm.application.steps.ForgotLoginSteps;
 import com.creatio.crm.application.steps.GoogleLoginPageSteps;
 import com.creatio.crm.application.steps.HomePageSteps;
@@ -14,24 +15,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 
-public class LoginWithValidCredentails {
-
-	public LoginPageSteps loginPage;
-	public SignupPageSteps signUPpage;
-	public LoginConfirmationpageSteps confirmationPage;
-	public HomePageSteps homePage;
-	public ForgotLoginSteps forgotLoginPage;
-	public GoogleLoginPageSteps googleLoginPage;
+public class LoginWithValidCredentails extends BaseTest {
 
 	@Given("Initialize the driver")
-	public void initializePages() {
-		WebDriver driver = BasePage.getDriver();
-		loginPage = new LoginPageSteps(driver);
-		signUPpage = new SignupPageSteps(driver);
-		confirmationPage = new LoginConfirmationpageSteps(driver);
-		homePage = new HomePageSteps(driver);
-		forgotLoginPage = new ForgotLoginSteps(driver);
-		googleLoginPage = new GoogleLoginPageSteps(driver);
+	public void initializeDriver() {
+		initializePages();
 	}
 
 	@Given("the user launches the application")
